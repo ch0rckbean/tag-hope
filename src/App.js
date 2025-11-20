@@ -1,12 +1,18 @@
-import Donate from './components/Donate.js';
+import Donate from './components/Donate';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className='App'>
-      <header></header>
-      <Donate></Donate>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          {/* <Route path='/' element={<Home />}></Route> */}
+          <Route path='/donate' element={<Donate />}></Route>
+          {/* <Route path='/complete' element={<Complete />}></Route> */}
+        </Routes>
+      </Router>
+    </>
   );
 }
 
