@@ -50,7 +50,7 @@ export default function Donate() {
       <div className='children'>
         {childrenList.map((ch) => (
           <>
-            <Card maxW='sm'>
+            <Card key={ch.id} maxW='sm'>
               <CardBody>
                 <Image src={ch.imgSrc} alt={ch.name} borderRadius='lg' />
                 <Stack mt='6' spacing='3'>
