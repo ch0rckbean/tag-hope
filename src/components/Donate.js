@@ -2,78 +2,78 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Container,
+  Grid,
   Card,
-  CardBody,
-  CardFooter,
-  Image,
-  Stack,
-  Heading,
-  Text,
+  CardMedia,
+  CardContent,
+  CardActions,
   Button,
-} from '@chakra-ui/react';
+  Typography,
+} from '@mui/material';
 
-// 아동 정보
 const childrenList = [
-  {
-    id: 1,
-    name: '짱구',
-    imgSrc: '/img/ch1.jpeg',
-    age: 5,
-  },
-  {
-    id: 2,
-    name: '밍구',
-    imgSrc: '/img/ch2.jpeg',
-    age: 3,
-  },
-  {
-    id: 3,
-    name: '맹구',
-    imgSrc: '/img/ch3.png',
-    age: 5,
-  },
-  {
-    id: 2,
-    name: '봉미선',
-    imgSrc: '/img/ch4.jpeg',
-    age: 6,
-  },
+  { id: 1, name: '짱구', imgSrc: '/img/ch1.jpeg', age: 5 },
+  { id: 2, name: '훈이', imgSrc: '/img/ch2.jpeg', age: 5 },
+  { id: 3, name: '맹구', imgSrc: '/img/ch3.png', age: 5 },
+  { id: 4, name: '봉미선', imgSrc: '/img/ch4.jpeg', age: 6 },
 ];
 
 export default function Donate() {
   const nav = useNavigate();
-  return (
-    <Container>
-      <div className='title'>
-        <h1>희망 나누기</h1>
-      </div>
-      <div className='children'>
-        {childrenList.map((ch) => (
-          <>
-            <Card key={ch.id} maxW='sm'>
-              <CardBody>
-                <Image src={ch.imgSrc} alt={ch.name} borderRadius='lg' />
-                <Stack mt='6' spacing='3'>
-                  <Heading size='md'>{ch.name}</Heading>
 
-                  <Text color='blue.600' fontSize='2xl'>
-                    아기 설명
-                  </Text>
-                </Stack>
-              </CardBody>
-              <CardFooter>
+  return (
+    <Container sx={{ py: 8 }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        희망 나누기
+      </Typography>
+
+      <Grid container spacing={3} justifyContent="center">
+        {childrenList.map((ch) => (
+          <Grid key={ch.id} xs={12} sm={6} md={4} lg={3} display="flex" justifyContent="center">
+            <Card
+              sx={{
+                width: 250,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <CardMedia
+                component="img"
+                image={ch.imgSrc}
+                alt={ch.name}
+                 sx={{
+    width: '100%',       // 카드 너비에 맞춤
+    height: 200,         // 최대 높이
+    objectFit: 'contain', // 이미지 비율 유지, 잘리지 않음
+    backgroundColor: '#fff' // 빈 공간 배경색
+                 }}
+              />
+              <CardContent
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <Typography variant="h6">{ch.name}</Typography>
+                <Typography color="primary">아기 설명</Typography>
+              </CardContent>
+              <CardActions>
                 <Button
-                  variant='solid'
-                  colorScheme='blue'
-                  onClick={() => nav('/complete')}
+                  variant="contained"
+                  color="primary"
+                  onClick={() => nav('/donate2', { state: { childName: ch.name } })}
                 >
                   후원하기
                 </Button>
-              </CardFooter>
-            </Card>{' '}
-          </>
+              </CardActions>
+            </Card>
+          </Grid>
         ))}
-      </div>
+      </Grid>
     </Container>
   );
 }
