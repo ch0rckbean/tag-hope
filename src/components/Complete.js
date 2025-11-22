@@ -47,14 +47,15 @@ export default function Complete() {
             🐻 후원 완료 🐻
           </Typography>
 
-          <Typography variant="h5" sx={{ mb: 2 }}>
-            {childName
-              ? `${childName}에게 ${name}님이 ${amount}원 후원을 완료했어요!`
-              : '귀여운 우리 아이에게 후원을 완료했어요!'}
+          <Typography variant="h4" sx={{ mb: 2 }}>
+                <>
+      {childName}에게{' '}
+      <span style={{ color: '#fff', fontWeight: 'bold' }}>{name}</span>님이 {amount}원 후원을 완료했어요!
+    </>
           </Typography>
 
-          <Typography variant="body1" sx={{ mb: 6 }}>
-            따뜻한 겨울을 선물해주셔서 감사합니다 💗
+          <Typography variant="h6" sx={{ mb: 4 }}>
+            따뜻한 겨울을 선물해주셔서 감사합니다 🤍
           </Typography>
 
           <Box>

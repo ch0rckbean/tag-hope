@@ -1,84 +1,82 @@
-// src/components/DonDrop.js
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function DonDrop({ donors = [], name }) {
+  const wrapperRef = useRef(null);
   const allDonors = [...donors, name].filter(Boolean);
 
-  // 컨테이너 넓이, 높이
-  const containerWidth = 350;
-  const containerHeight = 250;
+  const BOX_WIDTH = 120;
+  const BOX_HEIGHT = 60;
+  const GAP = 10;
+  const PER_ROW = 3;
 
-  // 충돌 없이 랜덤 위치 계산
-  const positions = useMemo(() => {
-    const placed = [];
+  const [wrapperWidth, setWrapperWidth] = useState(0);
 
-    allDonors.forEach(() => {
-      let safe = false;
-      let x = 0;
-      let y = 0;
+  useEffect(() => {
+    if (wrapperRef.current) {
+      setWrapperWidth(wrapperRef.current.offsetWidth);
+    }
 
-      while (!safe) {
-        x = Math.random() * (containerWidth - 120); // 도형 너비 고려
-        y = Math.random() * (containerHeight - 60); // 도형 높이 고려
-        safe = true;
-
-        // 기존 도형과 겹치면 재계산
-        for (let p of placed) {
-          const dx = Math.abs(p.x - x);
-          const dy = Math.abs(p.y - y);
-          if (dx < 120 && dy < 60) {
-            safe = false;
-            break;
-          }
-        }
+    const handleResize = () => {
+      if (wrapperRef.current) {
+        setWrapperWidth(wrapperRef.current.offsetWidth);
       }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-      placed.push({ x, y });
+  const rowCount = Math.ceil(allDonors.length / PER_ROW);
+
+  const positions = useMemo(() => {
+    return allDonors.map((_, index) => {
+      const row = Math.floor(index / PER_ROW);
+      const col = index % PER_ROW;
+
+      // 마지막 줄 아이템 수
+      const lastRowCount = allDonors.length % PER_ROW || PER_ROW;
+      const rowItemCount = row === rowCount - 1 ? lastRowCount : PER_ROW;
+
+      const rowWidth = rowItemCount * BOX_WIDTH + (rowItemCount - 1) * GAP;
+      const offsetX = (wrapperWidth - rowWidth) / 2 + col * (BOX_WIDTH + GAP);
+      const offsetY = row * (BOX_HEIGHT + GAP);
+
+      return { x: offsetX, y: offsetY };
     });
-
-    return placed;
-  }, [allDonors, containerWidth, containerHeight]);
+  }, [allDonors, rowCount, wrapperWidth]);
 
   return (
     <div
+      ref={wrapperRef}
       style={{
         position: 'relative',
-        width: containerWidth,
-        height: containerHeight,
-        marginTop: 30,
-        border: '1px dashed transparent',
+        width: '100%',
+        minHeight: rowCount * (BOX_HEIGHT + GAP),
+        marginTop: 40,
       }}
     >
       {allDonors.map((donor, index) => {
-        const width = 100 + Math.random() * 40; // 너비 100~140
-        const height = 60; // 일정 높이
-        const borderRadius = '50% / 50%'; // 타원
-
-        const pos = positions[index];
+        const pos = positions[index] || { x: 0, y: 0 };
 
         return (
           <motion.div
-            key={donor + index}
-            initial={{ y: -80, opacity: 0 }}
+            key={`${donor}-${index}`}
+            initial={{ y: -100, opacity: 0 }}
             animate={{ y: pos.y, x: pos.x, opacity: 1 }}
-            transition={{ duration: 1 + index * 0.2, delay: index * 0.1 }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
             style={{
               position: 'absolute',
-              width,
-              height,
-              borderRadius,
-              backgroundColor: '#fff',
+              width: BOX_WIDTH,
+              height: BOX_HEIGHT,
+              borderRadius: '50%',
               display: 'flex',
-              justifyContent: 'center',
               alignItems: 'center',
-              color: '#8CE4FF',
+              justifyContent: 'center',
+              color: '#fff',
               fontWeight: 'bold',
-              fontSize: 16,
-              textAlign: 'center',
-              padding: '0 10px',
+              fontSize: '3vh',
+              padding: '0 6px',
               whiteSpace: 'nowrap',
-              boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
             }}
           >
             {donor}

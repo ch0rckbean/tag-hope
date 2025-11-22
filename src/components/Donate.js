@@ -57,6 +57,7 @@ export default function Donate() {
         },
       });
     }, 800);
+    console.log(333)
   };
 
   return (
@@ -72,9 +73,9 @@ export default function Donate() {
         variant="h4"
         align="center"
         gutterBottom
-        sx={{ fontWeight: 'bold', mb: 6 }}
+        sx={{ fontWeight: 'bold', mb: 6 , color:'#fff'}}
       >
-        희망 나누기 💗
+        💗희망 나누기💗
       </Typography>
 
       {/* -------- 카드 영역 -------- */}
@@ -133,19 +134,19 @@ export default function Donate() {
                   gap: 0.5,
                 }}
               >
-                <Typography variant="h6" fontWeight="bold">
+                <Typography variant="h6" color='#F688BB' fontWeight="bold" >
                   {ch.name}
                 </Typography>
-                <Typography color="primary">{ch.age}살 어린이</Typography>
+                <Typography color="#F688BB">{ch.age}살 어린이</Typography>
               </CardContent>
 
               <CardActions sx={{ mt: 'auto', mb: 2 }}>
                 <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                   <Button
                     variant="contained"
-                    color="primary"
                     sx={{
                       borderRadius: '20px',
+                      background:"#c184d9",
                       px: 3,
                       py: 1,
                       fontWeight: 'bold',
@@ -159,7 +160,7 @@ export default function Donate() {
                       });
                     }}
                   >
-                    후원하기 💝
+                    후원하기 
                   </Button>
                 </motion.div>
               </CardActions>
@@ -175,19 +176,42 @@ export default function Donate() {
         gutterBottom
         sx={{ mt: 8 }}
         id="donate2"
-      >
+        color='#c184d9'
+        fontWeight={'bold'}
+        >
         후원자님을 알려주세요 🙌
       </Typography>
 
       <Grid container spacing={2} justifyContent="center" alignItems="center" sx={{ mb: 3 }}>
         <Grid item xs={12} sm={6} md={4}>
           <TextField
-            fullWidth
-            label="이름"
-            variant="outlined"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-          />
+  fullWidth
+  label="이름"
+  variant="outlined"
+  value={inputValue}
+  onChange={(e) => setInputValue(e.target.value)}
+  sx={{
+    '& .MuiOutlinedInput-root': {
+      color: '#c184d9',               // 글자색
+      '& fieldset': {
+        borderColor: '#c184d9',      // 테두리 색
+      },
+      '&:hover fieldset': {
+        borderColor: '#fff',      // 호버 시 테두리 색
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#fff',      // 포커스 시 테두리 색
+      },
+    },
+    '& .MuiInputLabel-root': {
+      color: '#c184d9',               // 라벨 색
+      '&.Mui-focused': {
+        color: '#fff',             // 포커스 시 라벨 색
+      },
+    },
+  }}
+/>
+
         </Grid>
       </Grid>
 
@@ -195,14 +219,24 @@ export default function Donate() {
       <Grid container spacing={2} justifyContent="center" alignItems="center" sx={{ mb: 3 }}>
         {['10000', '20000', '30000'].map((amount) => (
           <Grid item key={amount}>
-            <Button
-              variant={selectedAmount === amount ? 'contained' : 'outlined'}
-              color="primary"
-              onClick={() => handleAmountClick(amount)}
-              sx={{ minWidth: 100 }}
-            >
-              {amount}원
-            </Button>
+           <Button
+  variant={selectedAmount === amount ? 'contained' : 'outlined'}
+  onClick={() => handleAmountClick(amount)}
+  sx={{
+    minWidth: 100,
+    borderColor: '#fff', // 테두리 색
+    background: '#c184d9',
+    color: '#fff',
+    '&:hover': {
+      background: '#fff',   // 배경 반전
+      color: '#c184d9',     // 글자색 반전
+      borderColor: '#fff',  // 테두리 유지
+    },
+  }}
+>
+  {amount}원
+</Button>
+
           </Grid>
         ))}
       </Grid>
