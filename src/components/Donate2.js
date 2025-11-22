@@ -38,7 +38,7 @@ export default function Donate2() {
       </Grid>
 
       <Grid container spacing={2} justifyContent="center" alignItems="center" sx={{ mb: 3 }}>
-        {['2000', '5000', '10000'].map((amount) => (
+        {['10000', '20000', '30000'].map((amount) => (
           <Grid item key={amount}>
             <Button
               variant={selectedAmount === amount ? 'contained' : 'outlined'}
