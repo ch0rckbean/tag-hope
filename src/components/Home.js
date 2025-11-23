@@ -40,7 +40,8 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-export default function Home() {
+export default function Home({ setCurrentMusic }) {
+
   const nav = useNavigate();
 
   const fadeUp = {
@@ -79,13 +80,31 @@ export default function Home() {
             >
               후원하러 가기 
             </Button>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{ background:'#fff', color:'#00daff', width:'40%', height:'7vh', mb:'3vh', fontSize:'2vh' }}
-            >
-              캐롤 듣기 
-            </Button>
+       <Button
+  variant="contained"
+  size="large"
+  sx={{ background:'#fff', color:'#00daff', width:'40%', height:'7vh', mb:'3vh', fontSize:'2vh' }}
+ onClick={() => setCurrentMusic('/music1.mp3')}
+>
+  캐롤 듣기 1
+</Button>
+       <Button
+  variant="contained"
+  size="large"
+  sx={{ background:'#fff', color:'#00daff', width:'40%', height:'7vh', mb:'3vh', fontSize:'2vh' }}
+          onClick={() => setCurrentMusic('/music2.mp3')}
+>
+  캐롤 듣기 2
+</Button>
+       <Button
+  variant="contained"
+  size="large"
+  sx={{ background:'#fff', color:'#00daff', width:'40%', height:'7vh', mb:'3vh', fontSize:'2vh' }}
+          onClick={() => setCurrentMusic('/music3.mp3')}
+>
+  캐롤 듣기 3
+</Button>
+
           </div>
         </motion.div>
       </Container>
