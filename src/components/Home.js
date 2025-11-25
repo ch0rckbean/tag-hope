@@ -38,7 +38,7 @@ const musicList = [
     lyric: 'But baby it&#39;s cold outside',
   },
   {
-    img: '/star1.png',
+    img: '/m3.jpeg',
     title: 'The Most Wonderful Day of the Year',
     lyric: 'Toys galore scattered on the floor, there&#39;s no room for more',
   },
@@ -53,7 +53,7 @@ const musicList = [
     lyric: ' ',
   },
   {
-    img: '/star1.png',
+    img: '/m3.jpeg',
     title: 'The Most Wonderful Day of the Year',
     lyric: 'Toys galore scattered on the floor, there&#39;s no room for more',
   },
