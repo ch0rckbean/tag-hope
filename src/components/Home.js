@@ -43,24 +43,24 @@ const musicList = [
     lyric: 'Toys galore scattered on the floor, there&#39;s no room for more',
   },
   {
-    img: '/tree1.png',
+    img: '/m4.jpeg',
     title: 'Christmas in New York',
     lyric: 'Making my wish list, but all 1 wish is you',
   },
   {
-    img: '/snow1.png',
-    title: ' ',
-    lyric: ' ',
+    img: '/m5.jpeg',
+    title: '눈보다 먼저',
+    lyric: '눈보다 먼저 내렸으면',
   },
   {
-    img: '/m3.jpeg',
-    title: 'The Most Wonderful Day of the Year',
-    lyric: 'Toys galore scattered on the floor, there&#39;s no room for more',
+    img: '/m6.jpeg',
+    title: '소격동',
+    lyric: '너의 모든 걸 두 눈에 담고 있었죠',
   },
   {
-    img: '/heart1.png',
-    title: '💗 오늘의 마음',
-    lyric: '나눌수록 커지는 마음',
+    img: '/m7.jpeg',
+    title: '눈이 오면 mmm',
+    lyric: '하얀 눈이 내려 물들어가요',
   },
 ];
 
@@ -177,7 +177,7 @@ export default function Home({ setCurrentMusic }) {
               <Box sx={{ mt: 5, textAlign: 'center' }}>
                 <img
                   src={dailyItem.img}
-                  alt='daily'
+                  alt='music'
                   style={{ width: '200px', marginBottom: '15px' }}
                 />
 
