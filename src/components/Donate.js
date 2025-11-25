@@ -16,10 +16,10 @@ import {
 import { motion } from 'framer-motion';
 
 const childrenList = [
-  { id: 1, name: '짱구', imgSrc: '/img/ch1.jpeg', age: 5 },
-  { id: 2, name: '훈이', imgSrc: '/img/ch2.jpeg', age: 5 },
-  { id: 3, name: '맹구', imgSrc: '/img/ch3.png', age: 5 },
-  { id: 4, name: '봉미선', imgSrc: '/img/ch4.jpeg', age: 6 },
+  { id: 1, name: '짱구', imgSrc: 'ch1.jpeg', age: 5 },
+  { id: 2, name: '훈이', imgSrc: 'ch2.jpeg', age: 5 },
+  { id: 3, name: '맹구', imgSrc: 'ch3.jpeg', age: 5 },
+  { id: 4, name: '봉미선', imgSrc: 'ch4.jpeg', age: 6 },
 ];
 
 export default function Donate() {
@@ -72,16 +72,16 @@ export default function Donate() {
     >
       {/* 페이지 제목 */}
       <Typography
-        variant="h4"
-        align="center"
+        variant='h4'
+        align='center'
         gutterBottom
-        sx={{ fontWeight: 'bold', mb: 6, color: '#fff' }}
+        sx={{ fontWeight: 'bold', mb: 6, color: '#c5f1ff' }}
       >
-        💗희망 나누기💗
+        🤍희망 나누기🤍
       </Typography>
 
       {/* -------- 아동 카드 영역 -------- */}
-      <Grid container spacing={4} justifyContent="center">
+      <Grid container spacing={4} justifyContent='center'>
         {childrenList.map((ch, index) => (
           <Grid
             key={ch.id}
@@ -90,8 +90,8 @@ export default function Donate() {
             sm={6}
             md={4}
             lg={3}
-            display="flex"
-            justifyContent="center"
+            display='flex'
+            justifyContent='center'
             component={motion.div}
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export default function Donate() {
               }}
             >
               <CardMedia
-                component="img"
+                component='img'
                 image={ch.imgSrc}
                 alt={ch.name}
                 sx={{
@@ -135,15 +135,18 @@ export default function Donate() {
                   gap: 0.5,
                 }}
               >
-                <Typography variant="h6" color="#F688BB" fontWeight="bold">
+                <Typography variant='h6' color='#F688BB' fontWeight='bold'>
                   {ch.name}
                 </Typography>
-                <Typography color="#F688BB">{ch.age}살 어린이</Typography>
+                <Typography color='#F688BB'>{ch.age}살 어린이</Typography>
               </CardContent>
               <CardActions sx={{ mt: 'auto', mb: 2 }}>
-                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   <Button
-                    variant="contained"
+                    variant='contained'
                     sx={{
                       borderRadius: '20px',
                       background: '#c184d9',
@@ -170,23 +173,33 @@ export default function Donate() {
 
       {/* -------- 후원자 입력 -------- */}
       <Typography
-        variant="h4"
-        align="center"
+        variant='h4'
+        align='center'
         gutterBottom
         sx={{ mt: 8 }}
-        id="donate2"
-        color="#c184d9"
-        fontWeight="bold"
+        id='donate2'
+        fontWeight='bold'
+        textAlign='center'
       >
-        후원자님을 알려주세요 🙌
+        <span style={{ color: '#c5f1ff' }}>{selectedChildName}</span>
+        <span style={{ color: '#c184d9' }}>
+          에게 후원하기 <br />
+          후원자님을 알려주세요 🤍
+        </span>
       </Typography>
 
-      <Grid container spacing={2} justifyContent="center" alignItems="center" sx={{ mb: 3 }}>
+      <Grid
+        container
+        spacing={2}
+        justifyContent='center'
+        alignItems='center'
+        sx={{ mb: 3 }}
+      >
         <Grid item xs={12} sm={6} md={4}>
           <TextField
             fullWidth
-            label="이름"
-            variant="outlined"
+            label='이름'
+            variant='outlined'
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             sx={{
@@ -214,7 +227,13 @@ export default function Donate() {
       </Grid>
 
       {/* -------- 금액 선택 -------- */}
-      <Grid container spacing={2} justifyContent="center" alignItems="center" sx={{ mb: 3 }}>
+      <Grid
+        container
+        spacing={2}
+        justifyContent='center'
+        alignItems='center'
+        sx={{ mb: 3 }}
+      >
         {['10000', '20000', '30000'].map((amount) => (
           <Grid item key={amount}>
             <Button
@@ -239,11 +258,11 @@ export default function Donate() {
       </Grid>
 
       {/* -------- 완료 버튼 -------- */}
-      <Grid container justifyContent="center">
+      <Grid container justifyContent='center'>
         <Button
-          variant="contained"
-          color="secondary"
-          size="large"
+          variant='contained'
+          color='secondary'
+          size='large'
           onClick={handleComplete}
         >
           후원 완료 💖

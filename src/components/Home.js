@@ -53,9 +53,9 @@ const musicList = [
     lyric: ' ',
   },
   {
-    img: '/bell1.png',
-    title: '🔔 오늘의 종',
-    lyric: '희망을 알리는 소리',
+    img: '/star1.png',
+    title: 'The Most Wonderful Day of the Year',
+    lyric: 'Toys galore scattered on the floor, there&#39;s no room for more',
   },
   {
     img: '/heart1.png',
@@ -145,7 +145,7 @@ export default function Home({ setCurrentMusic }) {
                   ?.scrollIntoView({ behavior: 'smooth' })
               }
             >
-              후원하러 가기
+              아동 미리 만나보기
             </Button>
             {/* <Button
   variant="contained"
