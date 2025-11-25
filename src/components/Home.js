@@ -31,36 +31,43 @@ const musicList = [
     img: '/m1.jpg',
     title: 'Last Christmas',
     lyric: 'Once bitten, And twice shy',
+    url: 'https://www.youtube.com/watch?v=dNOA7gIA87E&list=RDdNOA7gIA87E&start_radio=1&pp=ygUTQ2hyaXN0bWFzIGxhc3QgZ2xlZaAHAQ%3D%3D',
   },
   {
     img: '/m2.jpeg',
     title: 'Baby It&#39;s Cold Outside',
     lyric: 'But baby it&#39;s cold outside',
+    url: 'https://www.youtube.com/watch?v=zUoJ8e2J-_w&list=RDzUoJ8e2J-_w&start_radio=1&pp=ygUtICAgIHRpdGxlOiAnQmFieSBJdCYjMzk7cyBDb2xkIE91dHNpZGUnLCBnbGVloAcB',
   },
   {
     img: '/m3.jpeg',
     title: 'The Most Wonderful Day of the Year',
     lyric: 'Toys galore scattered on the floor, there&#39;s no room for more',
+    url: 'https://www.youtube.com/watch?v=DCHAJ3_mAms&list=RDDCHAJ3_mAms&start_radio=1&pp=ygUnVGhlIE1vc3QgV29uZGVyZnVsIERheSBvZiB0aGUgWWVhciBnbGVloAcB',
   },
   {
     img: '/m4.jpeg',
     title: 'Christmas in New York',
     lyric: 'Making my wish list, but all 1 wish is you',
+    url: 'https://www.youtube.com/watch?v=DudygHca9AY&list=RDDudygHca9AY&start_radio=1&pp=ygUVY2hyaXN0bWFzIGluIG5ldyB5b3JroAcB',
   },
   {
     img: '/m5.jpeg',
     title: '눈보다 먼저',
     lyric: '눈보다 먼저 내렸으면',
+    url: 'https://www.youtube.com/watch?v=h_eTLBDVzhI&list=RDh_eTLBDVzhI&start_radio=1&pp=ygUP64iI67O064uk66i87KCAoAcB',
   },
   {
     img: '/m6.jpeg',
     title: '소격동',
     lyric: '너의 모든 걸 두 눈에 담고 있었죠',
+    url: 'https://www.youtube.com/watch?v=GHu39FEFIks&list=RDGHu39FEFIks&start_radio=1&pp=ygUJ7IaM6rKp64-ZoAcB',
   },
   {
     img: '/m7.jpeg',
     title: '눈이 오면 mmm',
     lyric: '하얀 눈이 내려 물들어가요',
+    url: 'https://www.youtube.com/watch?v=kH-jAT8fJ6k&list=RDkH-jAT8fJ6k&start_radio=1',
   },
 ];
 
@@ -175,12 +182,13 @@ export default function Home({ setCurrentMusic }) {
             {/* 음악 리스트 */}
             {dailyItem && (
               <Box sx={{ mt: 5, textAlign: 'center' }}>
-                <img
-                  src={dailyItem.img}
-                  alt='music'
-                  style={{ width: '200px', marginBottom: '15px' }}
-                />
-
+                <a href={dailyItem.url}>
+                  <img
+                    src={dailyItem.img}
+                    alt='music'
+                    style={{ width: '200px', marginBottom: '15px' }}
+                  />
+                </a>
                 <Typography
                   variant='h6'
                   fontWeight='bold'
@@ -191,7 +199,7 @@ export default function Home({ setCurrentMusic }) {
                 </Typography>
 
                 <Typography variant='body1' color='#00daff'>
-                  {dailyItem.lyric}
+                  "{dailyItem.lyric}"
                 </Typography>
               </Box>
             )}
