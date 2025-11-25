@@ -237,12 +237,11 @@ export default function Home({ setCurrentMusic }) {
                   sx={{
                     borderRadius: '20px',
                     overflow: 'hidden',
-                    cursor: 'pointer',
                     boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
                   }}
-                  onClick={() =>
-                    nav('/donate', { state: { childName: child.name } })
-                  }
+                  // onClick={() =>
+                  //   nav('/donate', { state: { childName: child.name } })
+                  // }
                 >
                   <CardMedia
                     component='img'
