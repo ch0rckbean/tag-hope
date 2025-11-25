@@ -37,8 +37,8 @@ export default function Donate() {
   const handleAmountClick = (amount) => setSelectedAmount(amount);
 
   const handleComplete = () => {
-    if (!inputValue || !selectedAmount) {
-      alert('이름과 후원 금액을 선택해주세요!');
+    if (!inputValue || !selectedAmount || !selectedChildName) {
+      alert('아동 선택, 이름 입력과 후원 금액 선택이 필요해요!');
       return;
     }
 
