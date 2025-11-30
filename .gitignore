@@ -24,8 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 
 
-public/music1.mp3
-public/music2.mp3
-public/music3.mp3
-.jpeg
-.png
+*.jpeg
+*.png

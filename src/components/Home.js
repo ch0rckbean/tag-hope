@@ -20,10 +20,10 @@ const MotionTypography = motion(Typography);
 const MotionGrid = motion(Grid);
 
 const childrenList = [
-  { id: 1, name: '짱구', imgSrc: '/ch1.jpeg', age: 2 },
-  { id: 2, name: '훈이', imgSrc: '/ch2.jpeg', age: 5 },
-  { id: 3, name: '맹구', imgSrc: '/ch3.jpeg', age: 5 },
-  { id: 4, name: '봉미선', imgSrc: '/ch4.jpeg', age: 6 },
+  { id: 1, name: '짱구', imgSrc: '/ch1.jpeg', age: 2 ,story:'호기심이 많아 매일 새로운 모험을 꿈꾸는 아이예요.'},
+  { id: 2, name: '훈이', imgSrc: '/ch2.jpeg', age: 5, story:'그림 그리기를 좋아하는 조용한 아이, 꿈은 화가가 되는 것입니다.'},
+  { id: 3, name: '맹구', imgSrc: '/ch3.jpeg', age: 5 ,story:'운동을 좋아하지만, 병에 걸리고 나서 자신감이 줄어든 아이입니다.'},
+  { id: 4, name: '봉미선', imgSrc: '/ch4.jpeg', age: 6,story:'노래 부르기를 좋아하지만, 마음껏 즐길 기회가 적은 아이예요.' },
 ];
 
 const musicList = [
@@ -251,10 +251,10 @@ export default function Home({ setCurrentMusic }) {
                   />
                   <CardContent sx={{ textAlign: 'center' }}>
                     <Typography variant='h6' fontWeight='bold ' color='#F688BB'>
-                      {child.name}
+                      {child.name}({child.age}살)
                     </Typography>
                     <Typography variant='body2' color='#F688BB'>
-                      {child.age}살
+                      {child.story}
                     </Typography>
                   </CardContent>
                 </Card>
