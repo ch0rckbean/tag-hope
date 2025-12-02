@@ -20,10 +20,34 @@ const MotionTypography = motion(Typography);
 const MotionGrid = motion(Grid);
 
 const childrenList = [
-  { id: 1, name: '짱구', imgSrc: '/ch1.jpeg', age: 2 ,story:'호기심이 많아 매일 새로운 모험을 꿈꾸는 아이예요.'},
-  { id: 2, name: '훈이', imgSrc: '/ch2.jpeg', age: 5, story:'그림 그리기를 좋아하는 조용한 아이, 꿈은 화가가 되는 것입니다.'},
-  { id: 3, name: '맹구', imgSrc: '/ch3.jpeg', age: 5 ,story:'운동을 좋아하지만, 병에 걸리고 나서 자신감이 줄어든 아이입니다.'},
-  { id: 4, name: '봉미선', imgSrc: '/ch4.jpeg', age: 6,story:'노래 부르기를 좋아하지만, 마음껏 즐길 기회가 적은 아이예요.' },
+  {
+    id: 1,
+    name: '짱구',
+    imgSrc: '/ch1.jpeg',
+    age: 2,
+    story: '호기심이 많아 매일 새로운 모험을 꿈꾸는 아이예요.',
+  },
+  {
+    id: 2,
+    name: '훈이',
+    imgSrc: '/ch2.jpeg',
+    age: 5,
+    story: '그림 그리기를 좋아하는 조용한 아이, 꿈은 화가가 되는 것입니다.',
+  },
+  {
+    id: 3,
+    name: '맹구',
+    imgSrc: '/ch3.jpeg',
+    age: 5,
+    story: '운동을 좋아하지만, 병에 걸리고 나서 자신감이 줄어든 아이입니다.',
+  },
+  {
+    id: 4,
+    name: '봉미선',
+    imgSrc: '/ch4.jpeg',
+    age: 6,
+    story: '노래 부르기를 좋아하지만, 마음껏 즐길 기회가 적은 아이예요.',
+  },
 ];
 
 const musicList = [
@@ -113,9 +137,9 @@ export default function Home({ setCurrentMusic }) {
     >
       {/* 메인 배너 */}
       <Container sx={{ textAlign: 'center', py: 8 }}>
-        <motion.div initial='hidden' animate='visible' variants={fadeUp}>
+        <motion.div initial="hidden" animate="visible" variants={fadeUp}>
           <MotionTypography
-            variant='h3'
+            variant="h3"
             sx={{ fontWeight: 'bold', mb: 2, color: '#00daff' }}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -124,8 +148,8 @@ export default function Home({ setCurrentMusic }) {
             희망을 태그하다
           </MotionTypography>
 
-          <Typography variant='h6' sx={{ mb: 4, color: '#00daff' }}>
-            따뜻한 마음을 나눠요
+          <Typography variant="h6" sx={{ mb: 4, color: '#00daff' }}>
+            태그 한 번에, 아이에게 닿는 희망
           </Typography>
 
           <div
@@ -136,8 +160,8 @@ export default function Home({ setCurrentMusic }) {
             }}
           >
             <Button
-              variant='contained'
-              size='large'
+              variant="contained"
+              size="large"
               sx={{
                 background: '#fff',
                 color: '#00daff',
@@ -147,9 +171,7 @@ export default function Home({ setCurrentMusic }) {
                 fontSize: '2vh',
               }}
               onClick={() =>
-                document
-                  .getElementById('children')
-                  ?.scrollIntoView({ behavior: 'smooth' })
+                document.getElementById('children')?.scrollIntoView({ behavior: 'smooth' })
               }
             >
               아동 미리 만나보기
@@ -185,20 +207,15 @@ export default function Home({ setCurrentMusic }) {
                 <a href={dailyItem.url}>
                   <img
                     src={dailyItem.img}
-                    alt='music'
+                    alt="music"
                     style={{ width: '200px', marginBottom: '15px' }}
                   />
                 </a>
-                <Typography
-                  variant='h6'
-                  fontWeight='bold'
-                  color='#00daff'
-                  sx={{ mb: 1 }}
-                >
+                <Typography variant="h6" fontWeight="bold" color="#00daff" sx={{ mb: 1 }}>
                   {dailyItem.title}
                 </Typography>
 
-                <Typography variant='body1' color='#00daff'>
+                <Typography variant="body1" color="#00daff">
                   "{dailyItem.lyric}"
                 </Typography>
               </Box>
@@ -208,9 +225,9 @@ export default function Home({ setCurrentMusic }) {
       </Container>
 
       {/* 아동 리스트 */}
-      <Container id='children' sx={{ py: 6, paddingTop: '!important 0' }}>
+      <Container id="children" sx={{ py: 6, paddingTop: '!important 0' }}>
         <Typography
-          variant='h5'
+          variant="h5"
           sx={{
             mb: 4,
             textAlign: 'center',
@@ -224,10 +241,10 @@ export default function Home({ setCurrentMusic }) {
         <MotionGrid
           container
           spacing={4}
-          justifyContent='center'
+          justifyContent="center"
           variants={containerVariants}
-          initial='hidden'
-          whileInView='show'
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, amount: 0.2 }} // ⭐ once: true 추가
         >
           {childrenList.map((child) => (
@@ -243,17 +260,12 @@ export default function Home({ setCurrentMusic }) {
                   //   nav('/donate', { state: { childName: child.name } })
                   // }
                 >
-                  <CardMedia
-                    component='img'
-                    height='220'
-                    image={child.imgSrc}
-                    alt={child.name}
-                  />
+                  <CardMedia component="img" height="220" image={child.imgSrc} alt={child.name} />
                   <CardContent sx={{ textAlign: 'center' }}>
-                    <Typography variant='h6' fontWeight='bold ' color='#F688BB'>
+                    <Typography variant="h6" fontWeight="bold " color="#F688BB">
                       {child.name}({child.age}살)
                     </Typography>
-                    <Typography variant='body2' color='#F688BB'>
+                    <Typography variant="body2" color="#F688BB">
                       {child.story}
                     </Typography>
                   </CardContent>
@@ -271,7 +283,7 @@ export default function Home({ setCurrentMusic }) {
           animate={{ opacity: 1, transition: { duration: 1.2 } }}
         >
           <Typography
-            variant='h5'
+            variant="h5"
             sx={{
               mb: 4,
               textAlign: 'center',
@@ -289,12 +301,7 @@ export default function Home({ setCurrentMusic }) {
                 <StepLabel
                   StepIconProps={{
                     sx: {
-                      color:
-                        index === 0
-                          ? '#dff8d5'
-                          : index === 1
-                          ? '#f8d5d5'
-                          : '#d5d8f8',
+                      color: index === 0 ? '#dff8d5' : index === 1 ? '#f8d5d5' : '#d5d8f8',
                     },
                   }}
                 >
@@ -305,8 +312,8 @@ export default function Home({ setCurrentMusic }) {
           </Stepper>
 
           <Button
-            variant='contained'
-            size='large'
+            variant="contained"
+            size="large"
             sx={{
               color: '#fff',
               background: '#BC7AF9',
