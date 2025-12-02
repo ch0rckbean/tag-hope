@@ -25,7 +25,7 @@ const childrenList = [
     name: '짱구',
     imgSrc: '/ch1.jpeg',
     age: 2,
-    story: '호기심이 많아 매일 새로운 모험을 꿈꾸는 아이에요.',
+    story: '호기심이 많아 매일 새로운 모험을 꿈꾸는 아이입니다.',
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ const childrenList = [
     name: '봉미선',
     imgSrc: '/ch4.jpeg',
     age: 6,
-    story: '노래 부르기를 좋아하지만, 마음껏 즐길 기회가 적은 아이에요.',
+    story: '노래 부르기를 좋아하지만, 마음껏 즐길 기회가 적은 아이입니다.',
   },
 ];
 
