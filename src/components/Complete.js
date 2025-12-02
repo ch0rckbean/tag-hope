@@ -12,7 +12,7 @@ export default function Complete() {
 
   const handleBackHome = () => nav('/');
 
-  const donors = ['하늘', '민준', '서연', '지호', '유나', '현우', '채원', '서진'];
+  const donors = ['해순', '현우', '성찬', '빈이', '수진', '민지', '시온', '소현'];
 
   return (
     <Box
