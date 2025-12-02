@@ -25,7 +25,7 @@ const childrenList = [
     name: '짱구',
     imgSrc: '/ch1.jpeg',
     age: 2,
-    story: '호기심이 많아 매일 새로운 모험을 꿈꾸는 아이예요.',
+    story: '호기심이 많아 매일 새로운 모험을 꿈꾸는 아이에요.',
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ const childrenList = [
     name: '봉미선',
     imgSrc: '/ch4.jpeg',
     age: 6,
-    story: '노래 부르기를 좋아하지만, 마음껏 즐길 기회가 적은 아이예요.',
+    story: '노래 부르기를 좋아하지만, 마음껏 즐길 기회가 적은 아이에요.',
   },
 ];
 
@@ -54,19 +54,19 @@ const musicList = [
   {
     img: '/m1.jpg',
     title: 'Last Christmas',
-    lyric: 'Once bitten, And twice shy',
+    lyric: "Once bitten, And twice shy",
     url: 'https://www.youtube.com/watch?v=dNOA7gIA87E&list=RDdNOA7gIA87E&start_radio=1&pp=ygUTQ2hyaXN0bWFzIGxhc3QgZ2xlZaAHAQ%3D%3D',
   },
   {
     img: '/m2.jpeg',
-    title: 'Baby It&#39;s Cold Outside',
-    lyric: 'But baby it&#39;s cold outside',
+    title: "Baby It's Cold Outside",
+    lyric: "But baby it's cold outside",
     url: 'https://www.youtube.com/watch?v=zUoJ8e2J-_w&list=RDzUoJ8e2J-_w&start_radio=1&pp=ygUtICAgIHRpdGxlOiAnQmFieSBJdCYjMzk7cyBDb2xkIE91dHNpZGUnLCBnbGVloAcB',
   },
   {
     img: '/m3.jpeg',
     title: 'The Most Wonderful Day of the Year',
-    lyric: 'Toys galore scattered on the floor, there&#39;s no room for more',
+    lyric: "Toys galore scattered on the floor, there's no room for more",
     url: 'https://www.youtube.com/watch?v=DCHAJ3_mAms&list=RDDCHAJ3_mAms&start_radio=1&pp=ygUnVGhlIE1vc3QgV29uZGVyZnVsIERheSBvZiB0aGUgWWVhciBnbGVloAcB',
   },
   {
